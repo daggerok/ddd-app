@@ -1,0 +1,7 @@
+= ddd-app image:https://travis-ci.org/daggerok/ddd-app.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/ddd-app"]
+
+DDD, CQRS and Event sourcing using spring-boot mongodb and kafka
+
+links:
+
+. link:https://www.youtube.com/watch?v=r7AGQsM7ncA

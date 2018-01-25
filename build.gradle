@@ -1,0 +1,68 @@
+buildscript {
+  ext {
+    springBootVersion = "2.0.0.M7"
+  }
+  repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }
+}
+
+plugins {
+  id "idea"
+  id "eclipse"
+}
+
+allprojects {
+
+  apply plugin: "base"
+
+  group = "daggerok"
+  version = "0.0.1"
+
+  defaultTasks "clean", "build"
+
+  task wrapper(type: Wrapper) {
+    distributionType = "ALL"
+    gradleVersion = "4.5"
+  }
+}
+
+subprojects {
+
+  apply plugin: "java"
+  apply plugin: "groovy"
+  apply plugin: "io.spring.dependency-management"
+
+  sourceCompatibility = targetCompatibility = 1.8
+
+  repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+  }
+
+  dependencies {
+
+    compileOnly("org.projectlombok:lombok")
+
+    compile("com.jayway.jsonpath:json-path")
+    compile("org.springframework.boot:spring-boot-starter-webflux")
+
+    runtime("org.springframework.boot:spring-boot-devtools")
+
+    testCompileOnly("org.projectlombok:lombok")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("io.projectreactor:reactor-test")
+
+    // spock
+    compile("org.codehaus.groovy:groovy-all:2.4.1")
+    testCompile("org.spockframework:spock-core:1.1-groovy-2.4")
+    testCompile("org.spockframework:spock-spring:1.1-groovy-2.4")
+    testCompile("cglib:cglib-nodep:3.2.2")
+  }
+}

@@ -1,0 +1,3 @@
+rootProject.name = "ddd-app"
+include "embedded-kafka"
+include "finance"
