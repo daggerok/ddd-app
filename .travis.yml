@@ -10,7 +10,7 @@ jdk:
 install: true
 before_install:
 - source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
-- stop_any 5432 5672 27017 8080
+- stop_any 5432 5672 27017 8080 9092
 script:
 - bash gradlew
 cache:

@@ -1,7 +1,13 @@
 apply plugin: "org.springframework.boot"
 
 dependencies {
+  compile("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
+  //compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+
+  //compile('org.springframework.cloud:spring-cloud-stream-binder-kafka')
+  //compile('org.springframework.cloud:spring-cloud-stream-binder-kstream')
   compile("org.springframework.kafka:spring-kafka")
+
   compile("io.vavr:vavr:0.9.2")
 }
 
